@@ -39,6 +39,18 @@ vim.keymap.set('v', 'jK', '<Esc>')
 -- Quickly clear search highlighting.
 vim.keymap.set('n', '<Leader>k', ':nohlsearch<CR>')
 
+-- Write to the file
+vim.keymap.set('n', '<Leader>w', ':w<CR>')
+vim.keymap.set('v', '<Leader>w', ':w<CR>')
+
+-- Write to all files and exit
+vim.keymap.set('n', '<Leader>we', ':wqa<CR>')
+vim.keymap.set('v', '<Leader>we', ':wqa<CR>')
+
+-- Quit without writing
+vim.keymap.set('n', '<Leader>qe', ':qa<CR>')
+vim.keymap.set('v', '<Leader>qe', ':qa<CR>')
+
 -- Open the current file in the default program (on Mac this should just be just `open`).
 vim.keymap.set('n', '<Leader>x', ':!open %<CR><CR>')
 
