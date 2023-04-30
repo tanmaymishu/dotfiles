@@ -28,13 +28,13 @@ vim.keymap.set('v', 'p', '"_dP')
 vim.keymap.set('i', ';;', '<Esc>A;')
 vim.keymap.set('i', ',,', '<Esc>A,')
 
--- Get back to normal mode from insert/visual mode etc
+-- Get back to normal mode from insert mode etc
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('i', 'Jk', '<Esc>')
 vim.keymap.set('i', 'jK', '<Esc>')
-vim.keymap.set('v', 'jk', '<Esc>')
-vim.keymap.set('v', 'Jk', '<Esc>')
-vim.keymap.set('v', 'jK', '<Esc>')
+-- vim.keymap.set('v', 'jk', '<Esc>')
+-- vim.keymap.set('v', 'Jk', '<Esc>')
+-- vim.keymap.set('v', 'jK', '<Esc>')
 
 -- Quickly clear search highlighting.
 vim.keymap.set('n', '<Leader>k', ':nohlsearch<CR>')
@@ -51,9 +51,9 @@ vim.keymap.set('v', '<Leader>sa', ':wa<CR>')
 vim.keymap.set('n', '<Leader>se', ':wqa<CR>')
 vim.keymap.set('v', '<Leader>se', ':wqa<CR>')
 
--- Quit without writing
-vim.keymap.set('n', '<Leader>qe', ':qa<CR>')
-vim.keymap.set('v', '<Leader>qe', ':qa<CR>')
+-- Quit without writing (Changes will be unsaved)
+vim.keymap.set('n', '<Leader>qe', ':qa!<CR>')
+vim.keymap.set('v', '<Leader>qe', ':qa!<CR>')
 
 -- Open the current file in the default program (on Mac this should just be just `open`).
 vim.keymap.set('n', '<Leader>x', ':!open %<CR><CR>')
@@ -65,7 +65,6 @@ vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
 vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
 vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 
 -- prompt for a refactor to apply when the remap is triggered
 vim.api.nvim_set_keymap(
