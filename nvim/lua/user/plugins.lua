@@ -319,6 +319,19 @@ use({
   end,
 })
 
+-- Debugging
+use("mfussenegger/nvim-dap")
+use({
+  "leoluz/nvim-dap-go",
+  config = function()
+    require('user/plugins/dap')
+  end,
+})
+use("rcarriga/nvim-dap-ui")
+use("theHamsta/nvim-dap-virtual-text")
+use("nvim-telescope/telescope-dap.nvim")
+use("github/copilot.vim")
+
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
 if packer_bootstrap then

@@ -40,12 +40,16 @@ vim.keymap.set('v', 'jK', '<Esc>')
 vim.keymap.set('n', '<Leader>k', ':nohlsearch<CR>')
 
 -- Write to the file
-vim.keymap.set('n', '<Leader>w', ':w<CR>')
-vim.keymap.set('v', '<Leader>w', ':w<CR>')
+vim.keymap.set('n', '<Leader>ss', ':w<CR>')
+vim.keymap.set('v', '<Leader>ss', ':w<CR>')
+
+-- Write to the file
+vim.keymap.set('n', '<Leader>sa', ':wa<CR>')
+vim.keymap.set('v', '<Leader>sa', ':wa<CR>')
 
 -- Write to all files and exit
-vim.keymap.set('n', '<Leader>we', ':wqa<CR>')
-vim.keymap.set('v', '<Leader>we', ':wqa<CR>')
+vim.keymap.set('n', '<Leader>se', ':wqa<CR>')
+vim.keymap.set('v', '<Leader>se', ':wqa<CR>')
 
 -- Quit without writing
 vim.keymap.set('n', '<Leader>qe', ':qa<CR>')
