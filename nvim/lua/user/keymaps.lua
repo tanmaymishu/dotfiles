@@ -52,8 +52,8 @@ vim.keymap.set('n', '<Leader>se', ':wqa<CR>')
 vim.keymap.set('v', '<Leader>se', ':wqa<CR>')
 
 -- Quit without writing (Changes will be unsaved)
-vim.keymap.set('n', '<Leader>qe', ':qa!<CR>')
-vim.keymap.set('v', '<Leader>qe', ':qa!<CR>')
+vim.keymap.set('n', '<Leader>eq', ':qa!<CR>')
+vim.keymap.set('v', '<Leader>eq', ':qa!<CR>')
 
 -- Open the current file in the default program (on Mac this should just be just `open`).
 vim.keymap.set('n', '<Leader>x', ':!open %<CR><CR>')
