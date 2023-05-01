@@ -29,9 +29,9 @@ vim.keymap.set('i', ';;', '<Esc>A;')
 vim.keymap.set('i', ',,', '<Esc>A,')
 
 -- Get back to normal mode from insert mode etc
-vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('i', 'Jk', '<Esc>')
-vim.keymap.set('i', 'jK', '<Esc>')
+vim.keymap.set('i', 'jk', '<Esc>:w<CR>')
+vim.keymap.set('i', 'Jk', '<Esc>:w<CR>')
+vim.keymap.set('i', 'jK', '<Esc>:w<CR>')
 -- vim.keymap.set('v', 'jk', '<Esc>')
 -- vim.keymap.set('v', 'Jk', '<Esc>')
 -- vim.keymap.set('v', 'jK', '<Esc>')
