@@ -1,4 +1,5 @@
 local actions = require('telescope.actions')
+local trouble = require("trouble.providers.telescope")
 
 -- vim.cmd([[
 --  highlight link TelescopePromptTitle PMenuSel
@@ -20,12 +21,16 @@ require('telescope').setup({
     sorting_strategy = 'ascending',
     mappings = {
       i = {
+        ["<c-t>"] = trouble.open_with_trouble,
         ['<esc>'] = actions.close,
         ['<C-Down>'] = actions.cycle_history_next,
         ['<C-Up>'] = actions.cycle_history_prev,
       },
+      n = {
+        ["<c-t>"] = trouble.open_with_trouble
+      },
     },
-    file_ignore_patterns = { '.git/' },
+    file_ignore_patterns = { '.git/', 'node_modules/' },
   },
   pickers = {
     find_files = {

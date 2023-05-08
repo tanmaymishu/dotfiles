@@ -9,3 +9,5 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 ln -s $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES/wezterm $HOME/.config/wezterm
 
+git clone https://github.com/fatih/vim-go.git ~/.local/share/nvim/site/pack/plugins/start/vim-go
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

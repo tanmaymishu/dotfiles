@@ -65,3 +65,28 @@ snippet tclax "ts class extends"
 		}
 		${0}
 	}
+snippet rcc "routing-controllers based controller"
+    import { NextFunction, Request, Response } from 'express';
+    import { Controller, Post, Get, Req, Res, UseBefore } from 'routing-controllers';
+    import Container, { Service } from 'typedi';
+
+    @Controller('${1}')
+    @Service()
+    export default class ${2} {
+      @Get('/${4}')
+      async index(@Req() request: Request, @Res() response: Response) {
+        return response.json({
+          message: '${3:Resource} fetched successfully',
+          data: {},
+        });
+      }
+
+      @Post('/${5}')
+      async store(@Req() request: Request, @Res() response: Response) {
+        return response.json({
+          message: '${3:Resource} created successfully',
+          data: {},
+        });
+      }
+    }
+    ${0}
