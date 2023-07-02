@@ -30,7 +30,7 @@ require('telescope').setup({
         ["<c-t>"] = trouble.open_with_trouble
       },
     },
-    file_ignore_patterns = { '.git/', 'node_modules/' },
+    file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/' },
   },
   pickers = {
     find_files = {
@@ -46,7 +46,7 @@ require('telescope').setup({
       prompt_title = 'History',
     },
     lsp_references = {
-      previewer = false,
+      previewer = true,
     },
   },
 })

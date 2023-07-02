@@ -23,8 +23,8 @@ require('dap-go').setup {
   },
 }
 require('dapui').setup()
-vim.keymap.set('n', '<leader>tb', ":lua require'dap'.toggle_breakpoint()")
-vim.keymap.set('n', '<leader>dc', ":lua require'dap'.continue()")
-vim.keymap.set('n', '<leader>ut', ":lua require'dapui'.toggle()")
-vim.keymap.set('n', '<leader>uc', ":lua require'dapui'.close()")
-vim.keymap.set('n', '<leader>dt', ":lua require'dap'.terminate()")
+vim.keymap.set('n', '<leader>tb', ":lua require'dap'.toggle_breakpoint()<CR>")
+vim.keymap.set('n', '<leader>dc', ":lua require'dap'.continue()<CR>")
+vim.keymap.set('n', '<leader>ut', ":lua require'dapui'.toggle()<CR>")
+vim.keymap.set('n', '<leader>uc', ":lua require'dapui'.close()<CR>")
+vim.keymap.set('n', '<leader>dt', ":lua require'dap'.terminate()<CR>")
