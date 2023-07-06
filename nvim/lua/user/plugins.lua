@@ -159,7 +159,7 @@ use({
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   },
   config = function()
-    require('user/plugins/telescope')
+    require('user/plugins/_telescope')
   end,
 })
 
@@ -253,7 +253,7 @@ use({
     'jayp0521/mason-null-ls.nvim',
   },
   config = function()
-    require('user/plugins/lspconfig')
+    require('user/plugins/_lspconfig')
   end,
 })
 

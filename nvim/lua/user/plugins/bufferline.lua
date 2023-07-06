@@ -54,6 +54,7 @@ vim.api.nvim_set_keymap('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', { norem
 vim.api.nvim_set_keymap('n', '<leader>0', ':BufferLineGoToBuffer 10<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>Q', ':BufferLineCloseLeft<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>W', ':BufferLineCloseRight<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wq', ':BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>:Bdelete<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>]', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>[', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>}', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })
