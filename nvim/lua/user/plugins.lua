@@ -345,6 +345,15 @@ use("rcarriga/nvim-dap-ui")
 use("theHamsta/nvim-dap-virtual-text")
 use("nvim-telescope/telescope-dap.nvim")
 use("github/copilot.vim")
+use("mbbill/undotree")
+use {
+  "cuducos/yaml.nvim",
+  ft = { "yaml" }, -- optional
+  requires = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-telescope/telescope.nvim" -- optional
+  },
+}
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins

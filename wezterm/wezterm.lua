@@ -17,9 +17,9 @@ config.color_scheme = 'Catppuccin Latte'
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
-  left = 4,
+  left = 8,
   right = 0,
-  top = 0,
+  top = 8,
   bottom = 0,
 }
 config.font = wezterm.font 'JetBrains Mono'
