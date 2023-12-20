@@ -195,6 +195,7 @@ use({
 -- Display indentation lines.
 use({
   'lukas-reineke/indent-blankline.nvim',
+  tag = 'v2.20.8',
   config = function()
     require('user/plugins/indent-blankline')
   end,
@@ -238,6 +239,7 @@ use({
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
+    require('ts_context_commentstring').setup()
     require('user/plugins/treesitter')
   end,
 })
