@@ -18,10 +18,33 @@ require('lspconfig').volar.setup({
 -- require('lspconfig').tsserver.setup({})
 
 -- Tailwind CSS
-require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+require('lspconfig').tailwindcss.setup({
+    on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end,
+    capabilities = capabilities,
+    filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+    init_options = { userLanguages = { templ = "html" } },
+  })
 
 -- Golang
-require('lspconfig').gopls.setup({})
+require('lspconfig').gopls.setup({
+    capabilities = capabilities,
+    filetypes = { 'go' },
+  })
+
+-- HTML
+require('lspconfig').html.setup({
+  capabilities = capabilities,
+  filetypes = { 'html', 'templ' },
+})
+
+-- Templ
+require('lspconfig').templ.setup({
+  capabilities = capabilities,
+  filetypes = { 'templ' },
+})
 
 -- JSON
 require('lspconfig').jsonls.setup({

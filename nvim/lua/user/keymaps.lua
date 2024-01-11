@@ -29,9 +29,9 @@ vim.keymap.set('i', ';;', '<Esc>A;')
 vim.keymap.set('i', ',,', '<Esc>A,')
 
 -- Get back to normal mode from insert mode etc
-vim.keymap.set('i', 'jk', '<Esc>:w<CR>')
-vim.keymap.set('i', 'Jk', '<Esc>:w<CR>')
-vim.keymap.set('i', 'jK', '<Esc>:w<CR>')
+-- vim.keymap.set('i', 'jk', '<Esc>:w<CR>')
+-- vim.keymap.set('i', 'Jk', '<Esc>:w<CR>')
+-- vim.keymap.set('i', 'jK', '<Esc>:w<CR>')
 -- vim.keymap.set('v', 'jk', '<Esc>')
 -- vim.keymap.set('v', 'Jk', '<Esc>')
 -- vim.keymap.set('v', 'jK', '<Esc>')
@@ -73,6 +73,8 @@ vim.api.nvim_set_keymap(
     ":lua require('refactoring').select_refactor()<CR>",
     { noremap = true, silent = true, expr = false }
 )
+
+vim.keymap.set("n", "<leader>rv", "gd[{V%::s/<C-R>///gc<left><left><left>")
 
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
     {silent = true, noremap = true}

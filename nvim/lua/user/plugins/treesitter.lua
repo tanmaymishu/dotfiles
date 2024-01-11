@@ -17,5 +17,9 @@ require('nvim-treesitter.configs').setup({
     }
   }
 })
-
+vim.filetype.add({
+    extension = {
+        templ = "templ",
+    },
+})
 require('ts_context_commentstring').setup {}
