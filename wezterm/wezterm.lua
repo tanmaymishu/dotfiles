@@ -22,8 +22,8 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
-config.font = wezterm.font 'Zed Mono Medium Extended'
-config.font_size = 15
+config.font = wezterm.font 'JetBrains Mono Medium'
+config.font_size = 14
 config.line_height = 1.4
 config.initial_cols = 130
 config.colors = {

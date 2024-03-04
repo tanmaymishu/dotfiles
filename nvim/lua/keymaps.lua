@@ -71,23 +71,3 @@ vim.api.nvim_set_keymap(
 )
 
 vim.keymap.set("n", "<leader>rv", "gd[{V%::s/<C-R>///gc<left><left><left>")
-
--- Enable the keymaps below if you're using TroubleToggle
--- vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
---     {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
---     {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
---     {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
---     {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
---     {silent = true, noremap = true}
--- )
--- vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
---     {silent = true, noremap = true}
--- )
