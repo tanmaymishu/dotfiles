@@ -20,4 +20,3 @@ vim.opt.backupdir:remove(".")           -- keep backups out of the current direc
 vim.opt.wrap = false
 vim.opt.wildmode =
 "longest:full,full"                     -- complete the longest common match, and allow tabbing the results to fully complete them
-vim.foldmethod = "syntax"
