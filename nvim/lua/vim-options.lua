@@ -20,3 +20,7 @@ vim.opt.backupdir:remove(".")           -- keep backups out of the current direc
 vim.opt.wrap = false
 vim.opt.wildmode =
 "longest:full,full"                     -- complete the longest common match, and allow tabbing the results to fully complete them
+vim.opt.scrolloff = 999
+vim.opt.sidescrolloff = 8
+vim.opt.confirm = true -- ask for confirmation instead of erroring
+vim.opt.signcolumn = "yes:2"
