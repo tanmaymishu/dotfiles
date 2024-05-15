@@ -94,4 +94,13 @@ return {
 			vim.g.pasta_disabled_filetypes = { "fugitive" }
 		end,
 	},
+	{
+		"maxmellon/vim-jsx-pretty",
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
 }

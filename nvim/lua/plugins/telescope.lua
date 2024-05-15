@@ -46,6 +46,8 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("live_grep_args")
 
+			vim.keymap.set("n", "<leader>gd", builtin.lsp_definitions, {})
+
 			vim.keymap.set("n", "<leader>f", builtin.find_files, {})
 			vim.keymap.set(
 				"n",
