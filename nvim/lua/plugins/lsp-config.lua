@@ -38,11 +38,11 @@ return {
       })
       lspconfig.html.setup({
         capabilities = capabilities,
-        filetypes = { "html", "templ" },
+        filetypes = { "html", "templ", "php" },
       })
       lspconfig.intelephense.setup({
         capabilities = capabilities,
-        filetypes = { "php" },
+        filetypes = { "php", "blade" },
       })
       -- lspconfig.htmx.setup({
       -- 	capabilities = capabilities,

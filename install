@@ -2,11 +2,37 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
-rm -rf $HOME/.config/nvim
-rm -rf $HOME/.tmux.conf
-rm -rf $HOME/.config/wezterm
-ln -s $DOTFILES/nvim $HOME/.config/nvim
-ln -s $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
-ln -s $DOTFILES/wezterm $HOME/.config/wezterm
+# Remove existing directories/files
+if [ -d "$HOME/.config/nvim" ]; then
+    rm -rf "$HOME/.config/nvim"
+fi
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ -f "$HOME/.tmux.conf" ]; then
+    rm -rf "$HOME/.tmux.conf"
+fi
+
+if [ -d "$HOME/.config/wezterm" ]; then
+    rm -rf "$HOME/.config/wezterm"
+fi
+
+if [ -d "$HOME/.tmux" ]; then
+    rm -rf "$HOME/.tmux"
+fi
+
+if [ -d "$HOME/.local/share/nvim/site/pack/plugins/start/vim-go" ]; then
+    rm -rf "$HOME/.local/share/nvim/site/pack/plugins/start/vim-go"
+fi
+
+if [ ! -d "$HOME/.config" ]; then
+  mkdir -p "$HOME/.config"
+fi
+
+
+# Create symbolic links
+ln -s "$DOTFILES/nvim" "$HOME/.config/nvim"
+ln -s "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
+ln -s "$DOTFILES/wezterm" "$HOME/.config/wezterm"
+
+# Clone repositories
+git clone https://github.com/fatih/vim-go.git "$HOME/.local/share/nvim/site/pack/plugins/start/vim-go" || true
+git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm" || true
