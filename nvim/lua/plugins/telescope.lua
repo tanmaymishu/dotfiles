@@ -23,7 +23,7 @@ return {
 						prompt_position = "top",
 					},
 					sorting_strategy = "ascending",
-					file_ignore_patterns = { ".git/", "node_modules/", "vendor/" },
+					file_ignore_patterns = { ".git/", "node_modules/" },
 				},
 				pickers = {
 					find_files = {
@@ -47,6 +47,7 @@ return {
 			telescope.load_extension("live_grep_args")
 
 			vim.keymap.set("n", "<leader>gd", builtin.lsp_definitions, {})
+			vim.keymap.set("n", "<leader>gi", builtin.lsp_implementations, {})
 
 			vim.keymap.set("n", "<leader>f", builtin.find_files, {})
 			vim.keymap.set(
