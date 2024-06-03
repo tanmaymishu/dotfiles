@@ -7,6 +7,18 @@ return {
     end,
   },
   {
+    "jay-babu/mason-null-ls.nvim",
+    lazy = false,
+    opts = {
+      auto_install = true,
+    },
+    config = function()
+      require("mason-null-ls").setup({
+        ensure_installed = { "eslint_d", "prettierd" },
+      })
+    end,
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
@@ -143,8 +155,6 @@ return {
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
       vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>")
-      vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
       vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, {})
       vim.keymap.set("n", "<Leader>rs", ":LspRestart<CR>")
       vim.keymap.set({ "n", "v" }, "<leader>ud", ":DiagnosticsToggleVirtualText<CR>")

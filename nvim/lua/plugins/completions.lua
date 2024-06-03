@@ -36,6 +36,11 @@ return {
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = {
+					["<C-i>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+					["<C-e>"] = cmp.mapping({
+						i = cmp.mapping.abort(),
+						c = cmp.mapping.close(),
+					}),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
@@ -62,6 +67,7 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "codeium" },
 				}, {
 					{ name = "buffer" },
 				}),
