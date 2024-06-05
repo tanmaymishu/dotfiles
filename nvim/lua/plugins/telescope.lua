@@ -91,6 +91,7 @@ return {
 			vim.keymap.set("n", "<leader>gc", require("telescope-live-grep-args.shortcuts").grep_word_under_cursor, {})
 			vim.keymap.set("n", "<leader>h", builtin.oldfiles, {})
 			vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, {})
+			vim.keymap.set("n", "<leader>ld", builtin.lsp_dynamic_workspace_symbols, {})
 		end,
 	},
 	{
