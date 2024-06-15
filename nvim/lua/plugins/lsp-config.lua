@@ -14,7 +14,7 @@ return {
     },
     config = function()
       require("mason-null-ls").setup({
-        ensure_installed = { "eslint_d", "prettierd" },
+        ensure_installed = { "prettierd" },
       })
     end,
   },
@@ -26,7 +26,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "tailwindcss", "html", "gopls", "templ", "intelephense" },
+        ensure_installed = { "lua_ls", "tsserver", "astro", "tailwindcss", "html", "gopls", "templ", "intelephense" },
       })
     end,
   },
@@ -84,6 +84,38 @@ return {
       lspconfig.intelephense.setup({
         capabilities = capabilities,
         filetypes = { "php", "blade" },
+      })
+      lspconfig.astro.setup({
+        capabilities = capabilities,
+        filetypes = { "astro" },
+      })
+      local root_file = {
+        '.eslintrc',
+        '.eslintrc.js',
+        '.eslintrc.cjs',
+        '.eslintrc.yaml',
+        '.eslintrc.yml',
+        '.eslintrc.json',
+        'eslint.config.js',
+        'eslint.config.mjs',
+        'eslint.config.cjs',
+        'eslint.config.ts',
+        'eslint.config.mts',
+        'eslint.config.cts',
+      }
+      lspconfig.eslint.setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+        root_dir = function(fname)
+          root_file = lspconfig.util.insert_package_json(root_file, 'eslintConfig', fname)
+          return lspconfig.util.root_pattern(unpack(root_file))(fname)
+        end,
+        filetypes = { "html", "markdown", "vue", "astro", "javascript", "typescript", "typescriptreact", "javascriptreact" },
       })
       -- lspconfig.htmx.setup({
       -- 	capabilities = capabilities,

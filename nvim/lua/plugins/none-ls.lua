@@ -8,7 +8,6 @@ return {
     local formatting = null_ls.builtins.formatting
     null_ls.setup({
       sources = {
-        require("none-ls.diagnostics.eslint_d"),
         formatting.prettierd.with({
           filetypes = {
             "javascript",
