@@ -46,7 +46,7 @@ return {
 				},
 				pickers = {
 					find_files = {
-						-- hidden = true,
+						hidden = true,
 						path_display = filenameFirst,
 					},
 					buffers = {
