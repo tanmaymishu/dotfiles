@@ -26,7 +26,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "astro", "tailwindcss", "html", "gopls", "templ", "intelephense" },
+        ensure_installed = { "lua_ls", "tsserver", "astro", "tailwindcss", "html", "gopls", "templ", "intelephense", "eslint" },
       })
     end,
   },
@@ -121,9 +121,7 @@ return {
       -- 	capabilities = capabilities,
       -- 	filetypes = { "html", "templ" },
       -- })
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
+      lspconfig.gopls.setup({})
 
       vim.filetype.add({ extension = { templ = "templ" } })
 
