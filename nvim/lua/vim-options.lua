@@ -19,8 +19,10 @@ vim.opt.backup = true                   -- automatically save a backup file
 vim.opt.backupdir:remove(".")           -- keep backups out of the current directory
 vim.opt.wrap = false
 vim.opt.wildmode =
-"longest:full,full"                     -- complete the longest common match, and allow tabbing the results to fully complete them
+"longest:full,full" -- complete the longest common match, and allow tabbing the results to fully complete them
 vim.opt.scrolloff = 999
 vim.opt.sidescrolloff = 8
 vim.opt.confirm = true -- ask for confirmation instead of erroring
 vim.opt.signcolumn = "yes:2"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
