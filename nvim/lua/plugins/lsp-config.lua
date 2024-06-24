@@ -129,6 +129,22 @@ return {
         capabilities = capabilities,
       })
 
+      -- go install github.com/nametake/golangci-lint-langserver@latest
+      if not lspconfig.golangcilsp then
+        lspconfig.golangcilsp = {
+          default_config = {
+            cmd = { 'golangci-lint-langserver' },
+            root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
+            init_options = {
+              command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1" },
+            }
+          },
+        }
+      end
+      lspconfig.golangci_lint_ls.setup {
+        filetypes = { 'go', 'gomod' }
+      }
+
       -- Command to toggle inline diagnostics
       vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
         local current_value = vim.diagnostic.config().virtual_text
