@@ -56,40 +56,16 @@ return {
       local capabilities =
           require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
       local lspconfig = require("lspconfig")
+      local navic = require("nvim-navic")
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
+        on_attach = function(client, buffer)
+          navic.attach(client, buffer)
+        end,
       })
-      -- local util = require 'lspconfig.util'
-      -- local function get_typescript_server_path(root_dir)
-      --   local global_ts = '/opt/homebrew/lib/node_modules/typescript/lib'
-      --   -- Alternative location if installed as root:
-      --   -- local global_ts = '/usr/local/lib/node_modules/typescript/lib'
-      --   local found_ts = ''
-      --   local function check_dir(path)
-      --     found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')
-      --     if util.path.exists(found_ts) then
-      --       return path
-      --     end
-      --   end
-      --   if util.search_ancestors(root_dir, check_dir) then
-      --     return found_ts
-      --   else
-      --     return global_ts
-      --   end
-      -- end
-
-      -- lspconfig.volar.setup {
-      --   on_new_config = function(new_config, new_root_dir)
-      --     new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
-      --   end,
-      --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
-      -- }
-      -- lspconfig.volar.setup {
-      --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
-      -- }
       lspconfig.tsserver.setup({
         capabilities = capabilities,
-        on_attach = function(_client, buffer)
+        on_attach = function(client, buffer)
           local function goto_source_definition()
             local position_params = vim.lsp.util.make_position_params()
             vim.lsp.buf.execute_command({
@@ -99,6 +75,7 @@ return {
           end
           local opts = { buffer = buffer }
           vim.keymap.set("n", "<leader>gz", goto_source_definition, opts)
+          navic.attach(client, buffer)
         end,
         handlers = {
           ['textDocument/definition'] = function(err, result, method, ...)
@@ -127,14 +104,23 @@ return {
       })
       lspconfig.html.setup({
         capabilities = capabilities,
+        on_attach = function(client, buffer)
+          navic.attach(client, buffer)
+        end,
         filetypes = { "html", "templ", "php" },
       })
       lspconfig.intelephense.setup({
         capabilities = capabilities,
+        on_attach = function(client, buffer)
+          navic.attach(client, buffer)
+        end,
         filetypes = { "php", "blade" },
       })
       lspconfig.astro.setup({
         capabilities = capabilities,
+        on_attach = function(client, buffer)
+          navic.attach(client, buffer)
+        end,
         filetypes = { "astro" },
       })
       local root_file = {
@@ -165,22 +151,29 @@ return {
         end,
         filetypes = { "html", "markdown", "vue", "astro", "javascript", "typescript", "typescriptreact", "javascriptreact" },
       })
-      -- lspconfig.htmx.setup({
-      -- 	capabilities = capabilities,
-      -- 	filetypes = { "html", "templ" },
-      -- })
-      lspconfig.gopls.setup({})
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+        on_attach = function(client, buffer)
+          navic.attach(client, buffer)
+        end,
+        cmd = { "gopls", "serve" },
+        filetypes = { "go", "gomod" },
+      })
 
       vim.filetype.add({ extension = { templ = "templ" } })
 
       lspconfig.templ.setup({
         capabilities = capabilities,
+        on_attach = function(client, buffer)
+          navic.attach(client, buffer)
+        end,
       })
 
       -- go install github.com/nametake/golangci-lint-langserver@latest
-      if not lspconfig.golangcilsp then
-        lspconfig.golangcilsp = {
+      if not lspconfig.golangci_lint_ls then
+        lspconfig.golangci_lint_ls = {
           default_config = {
+            capabilities = capabilities,
             cmd = { 'golangci-lint-langserver' },
             root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
             init_options = {
@@ -190,6 +183,7 @@ return {
         }
       end
       lspconfig.golangci_lint_ls.setup {
+        capabilities = capabilities,
         filetypes = { 'go', 'gomod' }
       }
 
