@@ -107,7 +107,7 @@ return {
         on_attach = function(client, buffer)
           navic.attach(client, buffer)
         end,
-        filetypes = { "html", "templ", "php" },
+        filetypes = { "html", "templ" },
       })
       lspconfig.intelephense.setup({
         capabilities = capabilities,
